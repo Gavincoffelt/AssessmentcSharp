@@ -14,45 +14,91 @@
 
 
 
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="52" Margin="350,92,0,0" 
-                 TextWrapping="Wrap" Text="First Name Last Name" VerticalAlignment="Top" Width="176"
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="44" Margin="350,92,0,0" 
+                 TextWrapping="Wrap" Text="First Name Last Name" VerticalAlignment="Top" Width="350"
                  BorderBrush="{x:Null}" SelectionBrush="#FFBF2B2B" Background="{x:Null}" />
-        <TextBox x:Name="contact" HorizontalAlignment="Left" Height="52" Margin="350,144,0,0" 
-                 TextWrapping="Wrap" Text="Contact Info" VerticalAlignment="Top" Width="176" 
-                 BorderBrush="{x:Null}" FontSize="30" SelectionBrush="#FFBF2B2B"  />
+        <TextBox x:Name="contact" HorizontalAlignment="Left" Height="52" Margin="350,141,0,0" 
+                 TextWrapping="Wrap" Text="Contact Info" VerticalAlignment="Top" Width="350" 
+                 BorderBrush="{x:Null}" FontSize="30" SelectionBrush="#FFBF2B2B" Background="{x:Null}"  />
 
 
 
 
 
         <!--Font Changing Combo Box-->
-        <StackPanel Margin="10">
-            <ComboBox x:Name="fonts" HorizontalAlignment="Left" Margin="658,412,0,0" VerticalAlignment="Top" Width="128" Height="34"
+        <StackPanel Margin="0,10,20,10">
+            <ComboBox x:Name="fonts" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top" Width="128" Height="34"
                       IsEditable="True" SelectionChanged="FontChanged" Text="Fonts" SelectedValuePath="FontFamily">
 
-                <ComboBoxItem x:Name="David" FontFamily="David" >David</ComboBoxItem>
-                <ComboBoxItem x:Name="Calibri" FontFamily="Calibri">Calibri</ComboBoxItem>
-                <ComboBoxItem x:Name="Times_New_Roman" FontFamily="Times New Roman">Times New Roman</ComboBoxItem>
-                <ComboBoxItem x:Name="Comic_Sans" FontFamily="Comic Sans MS" >Comic Sans MS</ComboBoxItem>
-                <ComboBoxItem x:Name="Courier_New" FontFamily="Courier New">Courier New</ComboBoxItem>
+                <ComboBoxItem x:Name="David" FontFamily="David" Content="David" />
+                <ComboBoxItem x:Name="Calibri" FontFamily="Calibri" Content="Calibri"/>
+                <ComboBoxItem x:Name="Times_New_Roman" FontFamily="Times New Roman" Content="Times New Roman"/>
+                <ComboBoxItem x:Name="Comic_Sans" FontFamily="Comic Sans MS" Content="Comic Sans MS" />
+                <ComboBoxItem x:Name="Courier_New" FontFamily="Courier New" Content="Courier New"/>
             </ComboBox>
+
+
+            <!--Shifts Text around the Business card-->
+            <ComboBox x:Name="TextMover" Margin="10,0,785,0" BorderBrush="#FF817B7B" Text="TopLeft" IsEditable="True" SelectionChanged="TextMove">
+                <ComboBoxItem x:Name="TopLeft" Content="TopLeft" />
+                <ComboBoxItem x:Name="BottomLeft" Content="BottomLeft"/>
+                <ComboBoxItem x:Name="Centered" Content="Centered"/>
+                <ComboBoxItem x:Name="TopRight" Content="TopRight"/>
+                <ComboBoxItem x:Name="BottomRight" Content=" BottomRight"/>
+            </ComboBox>
+
+
+
+
+
 
             <!--Changes Color Of Business Card-->
-        </StackPanel>
-        <StackPanel Margin="10">
-            <ComboBox x:Name="colors" HorizontalAlignment="Left" Margin="65,412,0,0" VerticalAlignment="Top" Width="128" Height="34"
-                      IsEditable="True" SelectionChanged="ColorChanged" Text="Colors" SelectedValuePath="SolidColorBrush" Background="White">
+            <ComboBox x:Name="colors" HorizontalAlignment="Left" Margin="5,91,0,0" VerticalAlignment="Top" Width="128" Height="34"
+                      IsEditable="True" SelectionChanged="ColorChanged" Text="Colors" SelectedValuePath="Content" Background="White">
 
-                <ComboBoxItem x:Name="Blue"   Background="Blue" BorderBrush="Blue" Foreground="Black"  >Blue</ComboBoxItem>
-                <ComboBoxItem x:Name="Red"    Background="DarkRed" >Red</ComboBoxItem>
-                <ComboBoxItem x:Name="Gray"   Background="SlateGray" >Gray</ComboBoxItem>
-                <ComboBoxItem x:Name="Yellow" Background="Yellow"  >Yellow</ComboBoxItem>
-                <ComboBoxItem x:Name="Green"  Background="Green" >Green</ComboBoxItem>
+                <ComboBoxItem x:Name="Blue"   Background="Blue" BorderBrush="Blue" Foreground="Black"  Content="Blue"  />
+                <ComboBoxItem x:Name="Red"    Background="DarkRed" Content="DarkRed" />
+                <ComboBoxItem x:Name="Gray"   Background="SlateGray" Content="Gray" />
+                <ComboBoxItem x:Name="Yellow" Background="Yellow"  Content="Yellow"  />
+                <ComboBoxItem x:Name="Green"  Background="Green" Content="Green" />
+                <ComboBoxItem x:Name="Gradient"  Background="White" Content="Gradients" />
+            </ComboBox>
+            <ComboBox x:Name="gradient1" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="60" Height="34"
+                IsEditable="True" SelectionChanged="GradientChange" Text="Top" Visibility="Hidden" SelectedValuePath="Content">
+
+                <ComboBoxItem x:Name="Blue1"   Background="Blue"  Content="Blue"  />
+                <ComboBoxItem x:Name="Red1"    Background="DarkRed" Content="Red" />
+                <ComboBoxItem x:Name="Gray1"   Background="SlateGray" Content="Gray" />
+                <ComboBoxItem x:Name="Yellow1" Background="Yellow"  Content="Yellow"  />
+                <ComboBoxItem x:Name="Green1"  Background="Green" Content="Green" />
             </ComboBox>
 
+            <ComboBox x:Name="gradient2" HorizontalAlignment="Left" Margin="75,-35,0,0" VerticalAlignment="Center" Width="60" Height="34"
+                IsEditable="True" SelectionChanged="GradientChange" Text="Bottom"  Visibility="Hidden" SelectedValuePath="Content">
 
+                <ComboBoxItem x:Name="Blue2"   Background="Blue"  Content="Blue"  />
+                <ComboBoxItem x:Name="Red2"    Background="DarkRed" Content="Red" />
+                <ComboBoxItem x:Name="Gray2"   Background="SlateGray" Content="Gray" />
+                <ComboBoxItem x:Name="Yellow2" Background="Yellow"  Content="Yellow"  />
+                <ComboBoxItem x:Name="Green2"  Background="Green" Content="Green" />
+            </ComboBox>
         </StackPanel>
-        <TextBox x:Name="fontSize" HorizontalAlignment="Left" Height="39" Margin="802,422,0,0" TextWrapping="Wrap" Text="Font Size" VerticalAlignment="Top" Width="50" TextChanged="FontSize" SelectionBrush="#FFBF2B2B"/>
+
+<!--Controls Size of Font for the business card-->
+        <TextBox x:Name="fontSize" HorizontalAlignment="Left" Height="20" Margin="94,57,0,0" TextWrapping="Wrap"
+                 Text="12" VerticalAlignment="Top" Width="35" TextChanged="FontSizer" SelectionBrush="#FFBF2B2B"/>
+        <!--<Button x:Name="Blank_Card"  Content="Blank Card" HorizontalAlignment="Left" Margin="100,392,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button x:Name="Stripes" Content="Striped" HorizontalAlignment="Left" Margin="300,392,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button x:Name="VertStripe" Content="Verical Stripes" HorizontalAlignment="Left" Margin="500,392,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button x:Name="PolkaDot" Content="PolkaDot" HorizontalAlignment="Left" Margin="700,392,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button x:Name="Squares" Content="Squares" HorizontalAlignment="Left" Margin="100,504,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="300,504,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="500,504,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="SelectedChange"/>-->
+      
+        
+        
+        <Button Content="Save Card" HorizontalAlignment="Left" Margin="758,10,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="Save"/>
+        <Button Content="Load Card" HorizontalAlignment="Left" Margin="758,61,0,0" VerticalAlignment="Top" Width="114" Height="46" Click="Load"/>
 
 
 
